@@ -15,7 +15,8 @@ public class ChatroomServer {
   // Socket used to create connections.
   private ServerSocket serverSocket;
   private List<ConnectionThread> serverConnections;
-
+  private static String ProgramVer = "SEN632 project by DD JS TG Ver. 1.0 Loading module: ";
+  
   /**
    * Creates a socket to accept connections on the declared port.
    * Listens for connections, creating separate threads for each connection.
@@ -60,18 +61,39 @@ public class ChatroomServer {
    * Display information about the server.
    */
   private void printServerInformation() {
+     try{
+    InetAddress addr = InetAddress.getLocalHost();
+    
     String status = "Running " +
-      String.valueOf(serverSocket.getInetAddress().getHostName()) +
+    //  String.valueOf(serverSocket.getInetAddress().getHostName()) +
+      addr.getHostAddress().toString() +
       " on port " + String.valueOf(serverSocket.getLocalPort());
     System.out.println(status);
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
   }
 
+  private static void print_env(String init_mes)
+  {
+    Properties props=System.getProperties();  
+    System.out.print(init_mes);
+    System.out.println(" Java ver. " + props.getProperty("java.version") + " by " + props.getProperty("java.vendor") + " with VM: " + props.getProperty("java.vm.name"));  
+  }
+  
   /**
    * Executable method for running a server application.
    * @param args List of arguments to start the server.
    */
   public static void main(String[] args) {
-    int port = Integer.valueOf(args[0]);
+    int port;
+    System.out.print(ProgramVer);
+    Chatbot cb = new Chatbot();
+    //cb.loading();
+    System.out.println(".");
+    print_env("Starting on");
+    if (args.length == 0) port = 8888;
+      else port = Integer.valueOf(args[0]);
     @SuppressWarnings("unused")
     Server server = new Server(port);
   }
