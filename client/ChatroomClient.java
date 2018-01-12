@@ -77,6 +77,6 @@ public class ChatroomClient {
     //else if (args[0] == "help") print_help("Chat Client");
     if (args.length == 1) port = 8888;
       else port = Integer.valueOf(args[1]);
-    Client clientApplication = new Client(args[0], port);
+    ChatroomClient clientApplication = new ChatroomClient(args[0], port);
   }
 }
