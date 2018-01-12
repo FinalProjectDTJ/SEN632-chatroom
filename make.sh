@@ -17,3 +17,5 @@ echo -e "${green} Done."
 echo -e "${plain}Compile ./client/*.java \c"
 javac -cp . ./client/*.java
 echo -e "${green} Done."
+
+echo "All done."
