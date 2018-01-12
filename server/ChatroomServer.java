@@ -98,7 +98,7 @@ public class ChatroomServer {
     if (args.length == 0) port = 8888;
       else port = Integer.valueOf(args[0]);
     @SuppressWarnings("unused")
-    Server server = new Server(port);
+    ChatroomServer server = new ChatroomServer(port);
   }
 
 }
