@@ -51,7 +51,7 @@ public class ConnectionThread extends Thread {
     }
 
     // Inform all the other connections the connection joined.
-    messageAllSockets(" ", "joined " + String.valueOf(serverSocket.getInetAddress().getHostName()));
+    messageAllSockets(" ", "joined this room.");
 
     // Relay output from from this connection to all the other connections.
     String inputLine;
@@ -78,7 +78,7 @@ public class ConnectionThread extends Thread {
    */
   public void messageAllSockets(String connector, String message) {
     for(ConnectionThread ct : allConnections) {
-      ct.messageSocket("Connection " + String.valueOf(this.connectionNumber), connector, message);
+      ct.messageSocket("User " + String.valueOf(this.connectionNumber), connector, message);
     }
   }
 
