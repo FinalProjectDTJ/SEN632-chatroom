@@ -6,5 +6,5 @@ green='\033[0;32m'
 yellow='\033[0;33m'
 plain='\033[0m'
 
-echo -e "${green} Starting Server ..."
+echo -e "${green} Starting Server ...${plain} "
 java -cp . server.ChatroomServer
