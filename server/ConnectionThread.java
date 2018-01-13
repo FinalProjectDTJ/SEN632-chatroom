@@ -8,11 +8,12 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.LinkedList;
 import java.util.List;
+import server.chatbot.Chatbot;
 
 public class ConnectionThread extends Thread {
 
   // Connections
-  private int connectionNumber;
+  private String connectionName;
   private static List<ConnectionThread> allConnections = new LinkedList<ConnectionThread>();
 
   // Socket information
@@ -30,7 +31,7 @@ public class ConnectionThread extends Thread {
   public ConnectionThread(ServerSocket server, Socket client) {
     super("ConnectionThread");
 
-    this.connectionNumber = allConnections.size();
+    this.connectionName = String.valueOf(allConnections.size());
     allConnections.add(this);
 
     this.serverSocket = server;
@@ -57,10 +58,13 @@ public class ConnectionThread extends Thread {
     String inputLine;
       try {
       while ((inputLine = socketInputStream.readLine()) != null) {
-        messageAllSockets(": ", inputLine);
+        if( inputLine.startsWith("@") ) {
+          System.out.println(connectionName + "use bot: " + inputLine);
+          messageAllSockets(": ", Chatbot.singleStr(this, inputLine));
+        }
+        else messageAllSockets(": ", inputLine);
       }
     } catch (IOException e) { }
-
   }
 
   /**
@@ -78,7 +82,7 @@ public class ConnectionThread extends Thread {
    */
   public void messageAllSockets(String connector, String message) {
     for(ConnectionThread ct : allConnections) {
-      ct.messageSocket("User " + String.valueOf(this.connectionNumber), connector, message);
+      ct.messageSocket("User " + this.connectionName, connector, message);
     }
   }
 

@@ -11,4 +11,8 @@ public class Chatbot {
   public static void loading() {
     System.out.println("Chatbot loaded.");
   }
+
+  public static String singleStr(String input) {
+    return "Copy";
+  } 
 }
