@@ -18,4 +18,4 @@ echo -e "${plain}Compile ./client/*.java \c"
 javac -cp . ./client/*.java
 echo -e "${green} Done."
 
-echo "All done."
+echo -e "${yellow}d(ŐдŐ๑)${plain} All done."

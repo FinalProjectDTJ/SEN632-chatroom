@@ -25,6 +25,25 @@ public class Chatbot {
       oldName = oldName + " change name to " + newName;
       return oldName;
     }
+
+    if (input.startsWith("@v ")) {
+      String[] subString = new String[3];
+      subString = ((input.substring(3)).trim()).split(" ", 2);
+      if (subString[0].equals("fight")) {
+        return "(ง •̀_•́)ง┻━┻";
+      }
+      if (subString[0].equals("cute")) {
+        return "(◕ܫ◕) ";
+      }
+      if (subString[0].equals("cheers")) {
+        return " (╬▔▽▔)凸";
+      }
+      if (subString[0].equals("help")) {
+        return "fight cute cheers";
+      }
+
+      return "No such things ...";
+    }
     return "No such command";
   } 
 }
