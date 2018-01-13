@@ -7,4 +7,4 @@ yellow='\033[0;33m'
 plain='\033[0m'
 
 echo -e "${green} Starting Command Line Client ... ${plain} "
-java -cp . client.ChatroomClient
+java -cp . client.ChatroomClient $1
