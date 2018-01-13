@@ -24,6 +24,14 @@ public class ConnectionThread extends Thread {
   private PrintStream socketPrintStream = null;
   private BufferedReader socketInputStream = null;
 
+  public String getConnectionName() {
+    return connectionName;
+  }
+
+  public void changeConnectionName(String newName) {
+    connectionName = newName;
+  }
+
   /**
    * Creates a new thread associated with a provided socket.
    * @param s
@@ -31,7 +39,7 @@ public class ConnectionThread extends Thread {
   public ConnectionThread(ServerSocket server, Socket client) {
     super("ConnectionThread");
 
-    this.connectionName = String.valueOf(allConnections.size());
+    this.connectionName = "User " + String.valueOf(allConnections.size());
     allConnections.add(this);
 
     this.serverSocket = server;
@@ -82,7 +90,7 @@ public class ConnectionThread extends Thread {
    */
   public void messageAllSockets(String connector, String message) {
     for(ConnectionThread ct : allConnections) {
-      ct.messageSocket("User " + this.connectionName, connector, message);
+      ct.messageSocket(this.connectionName, connector, message);
     }
   }
 
