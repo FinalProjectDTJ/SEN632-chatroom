@@ -19,5 +19,10 @@ Chatroom C/S program for SEN632
     
     Example: Send a "fighting" greeting to all by command `@v fight`.
     
+### 2.3 Joke bot
+    Use command `@joke` to send a random joke to all in the chatroom.
+    
+    Example: Send a random joke by command `@joke`.
+    
 ## References:
     Most idea fork from jgalilee/java-chatroom-example. Thank you.
