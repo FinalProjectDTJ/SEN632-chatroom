@@ -36,7 +36,7 @@ public class TextCrypt {
             keySeed = System.getProperty("AES_SYS_KEY");    
         }    
         if (keySeed == null || keySeed.trim().length() == 0) {    
-            keySeed = "abcd1234!@#$";// 默认种子    
+            keySeed = "DTJ^#@";// 默认种子    
         }    
         try {    
             SecureRandom secureRandom = SecureRandom.getInstance("SHA1PRNG");    

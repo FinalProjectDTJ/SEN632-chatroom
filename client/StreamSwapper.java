@@ -38,7 +38,7 @@ public class StreamSwapper extends Thread {
     this.inputStream = input;
     this.outputStream = output;
     this.whichWay = oneWay;
-    this.useKey = TextCrypt.getKey("abc12345!@#$");
+    this.useKey = TextCrypt.getKey("DTJ^#@");
   }
 
   /**
