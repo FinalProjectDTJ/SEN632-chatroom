@@ -67,7 +67,7 @@ public class ConnectionThread extends Thread {
       try {
       while ((inputLine = socketInputStream.readLine()) != null) {
         if( inputLine.startsWith("@") ) {
-          System.out.println(connectionName + "use bot: " + inputLine);
+          System.out.println(connectionName + " use bot: " + inputLine);
           messageAllSockets(": ", Chatbot.singleStr(this, inputLine));
         }
         else messageAllSockets(": ", inputLine);
