@@ -33,11 +33,11 @@ public class ChatroomClient {
       serverSocket = new Socket(serverName, portNumber);
 
       // Start a thread to read output from the server.
-      serverReader = new StreamSwapper(serverSocket.getInputStream(), System.out);
+      serverReader = new StreamSwapper(serverSocket.getInputStream(), System.out, "IN");
       serverReader.start();
 
       // Start a thread to write input to the server.
-      serverWriter = new StreamSwapper(System.in, serverSocket.getOutputStream());
+      serverWriter = new StreamSwapper(System.in, serverSocket.getOutputStream(), "OUT");
       serverWriter.start();
 
       // Keep the threads and socket active until we are finished.

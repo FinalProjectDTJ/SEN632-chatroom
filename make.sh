@@ -14,6 +14,10 @@ echo -e "${plain}Compile ./server/*.java \c"
 javac -cp . ./server/*.java
 echo -e "${green} Done."
 
+echo -e "${plain}Compile ./client/textcrypt/*.java \c"
+javac -cp . ./client/textcrypt/*.java
+echo -e "${green} Done."
+
 echo -e "${plain}Compile ./client/*.java \c"
 javac -cp . ./client/*.java
 echo -e "${green} Done."
