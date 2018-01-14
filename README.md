@@ -2,7 +2,9 @@
 Chatroom C/S program for SEN632
 
 ## 1. Tested with JDK 8
+
 1.1 Tested on Linux 16.04 LTS
+
 1.2 Tested on Win 7 x64
 
 ## 2. Chatbot
