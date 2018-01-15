@@ -6,16 +6,15 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.PrintWriter;
-
 import javax.crypto.SecretKey;
 
+// The pakage use as crypt lib.
 import client.textcrypt.TextCrypt;
 
 /**
- * Takes an input stream and an output stream.
- * Writes the input stream into the output stream.
- * @author Jack Galilee
- * @version 1.0
+ * Swapping an input stream and an output stream.
+ * @author DD JF TG, base on works of Jack Galilee
+ * @version 1.2
  */
 public class StreamSwapper extends Thread {
 
@@ -25,13 +24,17 @@ public class StreamSwapper extends Thread {
   // Stream we are going to write the input stream into.
   private OutputStream outputStream;
 
+  // Show the way of IN or OUT.
   private String whichWay;
+
+  // The SecrectKey this process used.
   private SecretKey useKey;
-  //private TextCrypt tc;
+
   /**
    * Constructs the stream swapper.
    * @param input Stream to get data from.
    * @param output Stream to send data to.
+   * @param oneWay shows the way from or to this computer.
    * @throws IOException
    */
   public StreamSwapper(InputStream input, OutputStream output, String oneWay) throws IOException {
@@ -56,21 +59,29 @@ public class StreamSwapper extends Thread {
     try {
       String lineBuffer;
       while ((lineBuffer = inputReader.readLine()) != null) {
+        
+        // Find out the way, if this is from this computer, encrypt the message without the bot symbol (@)
         if (this.whichWay.equals("OUT")) {
+          
+          // Skip encrypt this message if the string starts with "@".
           if (!lineBuffer.startsWith("@")) {
             outputWriter.println("^_#" + TextCrypt.encrypt(lineBuffer, useKey));
           } else {
             outputWriter.println(lineBuffer);
           }
         }
+        
+        // If the message is ready to show on this computer, find out it is encrypted (with "^_#") or not.
         else {
           int startCifer;
+          
+          // Skip decrypt this message if the string does not start with "^_#".
           if ((startCifer = lineBuffer.indexOf("^_#")) != -1) {
             //int startCifer = lineBuffer.indexOf;
             String startText = lineBuffer.substring(0, startCifer);
             outputWriter.println(startText + TextCrypt.decrypt(lineBuffer.substring(startCifer + 3), useKey));
             //outputWriter.println(TextCrypt.decrypt(lineBuffer.substring(lineBuffer.indexOf("^_#") + 3), useKey));
-          } else {
+          } else 
             outputWriter.println(lineBuffer);
           }
         }
