@@ -10,6 +10,11 @@ import java.util.LinkedList;
 import java.util.List;
 import server.chatbot.Chatbot;
 
+/**
+ * Create the threads to handle the socket links with clients.
+ * by DD JF TG, base on works of Jack Galilee
+ * ver. 1.2
+ */
 public class ConnectionThread extends Thread {
 
   // Connections
@@ -24,17 +29,25 @@ public class ConnectionThread extends Thread {
   private PrintStream socketPrintStream = null;
   private BufferedReader socketInputStream = null;
 
+  /**   
+    * Get the name of a linked client.
+    */
   public String getConnectionName() {
     return connectionName;
   }
 
+  /**
+    *Change the name of a linked client.
+    * @param newName is the newname of a client. 
+    */
   public void changeConnectionName(String newName) {
     connectionName = newName;
   }
 
   /**
    * Creates a new thread associated with a provided socket.
-   * @param s
+   * @param server is the socket of the server.
+   * @param client is the socket of a client.
    */
   public ConnectionThread(ServerSocket server, Socket client) {
     super("ConnectionThread");
