@@ -7,7 +7,7 @@ import java.net.UnknownHostException;
 /**
  * Client of chatroom program.
  * by DD JF TG
- * ver. 1.0
+ * ver. 1.2
  */
 public class ChatroomClient {
 
@@ -58,23 +58,25 @@ public class ChatroomClient {
 
   }
 
+  /**
+   * Print out the help information.
+   */
   private static void print_help(String program_name)
   {
     System.out.println(program_name + "should be used following by [Host address] (port number, default 8888)");
   }
+
   /**
    * Executable method for running a client application.
-   * @param args Name of the server and its operating port.
+   * @param args Name of the server and its operating port (default is 8888).
    */
   public static void main(String[] args) {
-    //@SuppressWarnings("unused")
     int port;
     if (args.length == 0 || args[0].equals("help") == true) 
     {
       print_help("SEN632 chat client");
       return;
     }
-    //else if (args[0] == "help") print_help("Chat Client");
     if (args.length == 1) port = 8888;
       else port = Integer.valueOf(args[1]);
     ChatroomClient clientApplication = new ChatroomClient(args[0], port);
