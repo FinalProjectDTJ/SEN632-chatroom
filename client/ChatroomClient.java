@@ -6,7 +6,7 @@ import java.net.UnknownHostException;
 
 /**
  * Client of chatroom program.
- * by DD JF TG
+ * by DD JF TG, base on works of Jack Galilee
  * ver. 1.2
  */
 public class ChatroomClient {
