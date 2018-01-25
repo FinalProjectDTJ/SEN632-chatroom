@@ -10,15 +10,15 @@ import server.chatbot.Chatbot;
 
 /**
  * Simple Java chatroom server.
- * by DD JF TG
- * ver. 1.0
+ * by DD JF TG, base on works of Jack Galilee
+ * ver. 1.2
  */
 public class ChatroomServer {
 
   // Socket used to create connections.
   private ServerSocket serverSocket;
   private List<ConnectionThread> serverConnections;
-  private static String ProgramVer = "SEN632 project by DD JS TG Ver. 1.0 Loading module: ";
+  private static String ProgramVer = "SEN632 project by DD JS TG Ver. 1.2 Loading module: ";
   private static String hostIP = "0.0.0.0";
   
   /**
@@ -82,20 +82,22 @@ public class ChatroomServer {
       e.printStackTrace();
     }
   }
+  
    /**
    * Executable method for running a server application.
    * @param args List of arguments to start the server.
    */
   public static void main(String[] args) {
     int port;
+    
+    // Print out the welcome message
     System.out.print(ProgramVer);
     Chatbot cb = new Chatbot();
-    //cb.loading();
     System.out.println(".");
-
+    
+    // If no args, program will use 8888 as port to serve
     if (args.length == 0) port = 8888;
       else port = Integer.valueOf(args[0]);
-    @SuppressWarnings("unused")
     ChatroomServer server = new ChatroomServer(port);
   }
 
