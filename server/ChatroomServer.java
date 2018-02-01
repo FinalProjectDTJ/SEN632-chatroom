@@ -10,7 +10,7 @@ import server.chatbot.Chatbot;
 
 /**
  * Simple Java chatroom server.
- * by DD JF TG, base on works of Jack Galilee
+ * by DD JF TG, base on works of J. Galilee
  * ver. 1.2
  */
 public class ChatroomServer {
