@@ -6,7 +6,7 @@ import java.util.Random;
 /**
  * Simple Chat Bot lib
  * by DD JF TG
- * ver. 1.2
+ * ver. 1.3
  */
 public class Chatbot {
 
@@ -65,6 +65,11 @@ public class Chatbot {
       ct.changeConnectionName(newName);
       oldName = oldName + " change name to " + newName;
       return oldName;
+    }
+
+    // Print out the plaintext
+    if (input.startsWith("@text ")) {
+      return (input.substring(6)).trim();
     }
 
     // Shows greeting to all user when someone use @v TheName 
