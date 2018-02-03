@@ -24,5 +24,18 @@ Chatroom C/S program for SEN632
     
     Example: Send a random joke by command `@joke`.
     
+### 2.4 Plaintext bot
+    Use command `@text` to send a plaintext (non-decrypt) message to all users in the chatroom.
+    
+    Example: Send a random joke by command `@text whatever you want to say`.
+    
+## 3. Programs
+
+### 3.1 ./client
+    Command line client of the chat room.
+    
+### 3.2 ./server
+    Server of the chat room.
+    
 ## References:
-    Most idea fork from jgalilee/java-chatroom-example. Thank you.
+
